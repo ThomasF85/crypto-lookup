@@ -1,0 +1,41 @@
+.list {
+  list-style: none;
+  max-width: 20em;
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  border: 1px solid black;
+}
+
+.bookmark {
+  border: none;
+  font-size: 0.7em;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: var(--white);
+}
+
+.bookmark:hover {
+  cursor: pointer;
+}
+
+.bookmark--active {
+  color: var(--black);
+}
+
+.bookmark-icon {
+  fill: currentcolor;
+  width: 2em;
+}
+
+.symbol {
+  font-weight: 600;
+}

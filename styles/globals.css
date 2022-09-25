@@ -1,3 +1,11 @@
+:root {
+  --primary: #ffffff;
+  --secondary: #ff4a11;
+  --secondary-light: #fddcd2;
+  --white: #ffffff;
+  --black: #252629;
+}
+
 html,
 body {
   padding: 0;

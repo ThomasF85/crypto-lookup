@@ -44,9 +44,9 @@ export default function Home() {
         <title>Crypto lookup</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header title="Crypto lookup" />
+      <Header title="Bookmarked Cards" />
       <main>
-        <CryptoList cryptos={cryptos} toggleBookmark={toggleBookmark} />
+        <p>Under construction</p>
       </main>
       <Navigation />
     </div>
