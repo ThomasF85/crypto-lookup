@@ -5,24 +5,20 @@ import Header from "../components/header/Header";
 import Navigation from "../components/navigation/Navigation";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
-  const [cryptos, setCryptos] = useState([]);
+export async function getServerSideProps() {
+  const response = await fetch("https://api.binance.com/api/v3/ticker/price");
+  const data = await response.json();
 
-  async function fetchPrices() {
-    const response = await fetch("https://api.binance.com/api/v3/ticker/price");
-    const data = await response.json();
+  const currentCryptos = data
+    .filter((ticker) => ticker.symbol.endsWith("USDT"))
+    .map((crypto) => ({ ...crypto, symbol: crypto.symbol.slice(0, -4) }));
 
-    const currentCryptos = data
-      .filter((ticker) => ticker.symbol.endsWith("USDT"))
-      .map((crypto) => ({ ...crypto, symbol: crypto.symbol.slice(0, -4) }));
+  return {
+    props: { cryptos: currentCryptos },
+  };
+}
 
-    setCryptos(currentCryptos);
-  }
-
-  useEffect(() => {
-    fetchPrices();
-  }, []);
-
+export default function Home({ cryptos }) {
   return (
     <div className={styles.container}>
       <Head>
