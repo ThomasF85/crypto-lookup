@@ -1,15 +1,23 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import styles from "../../styles/Coin.module.css";
 
 export default function BTC() {
   const [priceChange, setPriceChange] = useState({});
+  const router = useRouter();
+  const { coin } = router.query;
+
+  const coinUpperCase = coin ? coin.toUpperCase() : "-";
 
   async function fetchPriceChange() {
+    if (!router.isReady) {
+      return;
+    }
     const response = await fetch(
-      "https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT"
+      `https://api.binance.com/api/v3/ticker/24hr?symbol=${coinUpperCase}USDT`
     );
     const priceChange = await response.json();
 
@@ -18,7 +26,7 @@ export default function BTC() {
 
   useEffect(() => {
     fetchPriceChange();
-  }, []);
+  }, [coin]);
 
   const priceChangePercent = priceChange.priceChangePercent
     ? parseFloat(priceChange.priceChangePercent)
@@ -33,10 +41,10 @@ export default function BTC() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>BTC</title>
+        <title>{coinUpperCase}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header title="BTC" />
+      <Header title={coinUpperCase} />
       <main className={styles.main}>
         <section className={styles.coinCard}>
           <h2>Price Change 24 hrs</h2>
