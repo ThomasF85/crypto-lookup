@@ -6,9 +6,7 @@ import styles from "../../styles/Coin.module.css";
 export async function getServerSideProps(context) {
   const { coin } = context.query;
   const response = await fetch(
-    "https://api.binance.com/api/v3/ticker/24hr?symbol=" +
-      coin.toUpperCase() +
-      "USDT"
+    `https://api.binance.com/api/v3/ticker/24hr?symbol=${coin.toUpperCase()}USDT`
   );
   const priceChange = await response.json();
 
