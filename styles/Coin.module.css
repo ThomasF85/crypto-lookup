@@ -1,0 +1,28 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  padding: 6rem 0;
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
+.coinCard {
+  border: 1px solid black;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+}
+
+.price-change {
+  border: 5px solid red;
+  border-radius: 1em;
+  padding: 0.5em;
+}
+
+.price-change--positive {
+  border-color: green;
+}
