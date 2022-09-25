@@ -45,7 +45,9 @@ export default function BTC() {
           <p
             className={
               styles["price-change"] +
-              (priceChange > 0 ? " " + styles["price-change--positive"] : "")
+              (priceChangePercent > 0
+                ? " " + styles["price-change--positive"]
+                : "")
             }
           >
             Price Change:{" "}
