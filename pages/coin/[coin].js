@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import styles from "../../styles/Coin.module.css";
 
-export default function BTC() {
+export default function Coin() {
   const [priceChange, setPriceChange] = useState({});
   const router = useRouter();
   const { coin } = router.query;
