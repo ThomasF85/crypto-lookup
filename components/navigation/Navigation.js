@@ -26,15 +26,15 @@ function Navigation() {
         </li>
         <li
           className={`${styles["list-item"]}${
-            currentRoute === "/bookmarked"
+            currentRoute === "/portfolio"
               ? " " + styles["list-item--active"]
               : ""
           }`}
         >
-          <Link href="/bookmarked">
+          <Link href="/portfolio">
             <a className={styles.button}>
               <svg className={styles.icon} viewBox="0 0 24 24">
-                <path d="M17,18L12,15.82L7,18V5H17M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z" />
+                <path d="M6,16.5L3,19.44V11H6M11,14.66L9.43,13.32L8,14.64V7H11M16,13L13,16V3H16M18.81,12.81L17,11H22V16L20.21,14.21L13,21.36L9.53,18.34L5.75,22H3L9.47,15.66L13,18.64" />
               </svg>
             </a>
           </Link>

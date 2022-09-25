@@ -41,12 +41,12 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Crypto lookup</title>
+        <title>Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header title="Bookmarked Cards" />
-      <main>
-        <p>Under construction</p>
+      <Header title="Portfolio" />
+      <main className={styles.main}>
+        <h2>Page is under construction</h2>
       </main>
       <Navigation />
     </div>

@@ -16,27 +16,12 @@ export default function Home() {
       .filter((ticker) => ticker.symbol.endsWith("USDT"))
       .map((crypto) => ({ ...crypto, symbol: crypto.symbol.slice(0, -4) }));
 
-    setCryptos(
-      currentCryptos.map((crypto) => ({ ...crypto, bookmarked: false }))
-    );
+    setCryptos(currentCryptos);
   }
 
   useEffect(() => {
     fetchPrices();
   }, []);
-
-  function toggleBookmark(symbol) {
-    setCryptos((previousCryptos) =>
-      previousCryptos.map((crypto) =>
-        crypto.symbol === symbol
-          ? {
-              ...crypto,
-              bookmarked: !crypto.bookmarked,
-            }
-          : crypto
-      )
-    );
-  }
 
   return (
     <div className={styles.container}>
@@ -45,8 +30,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header title="Crypto lookup" />
-      <main>
-        <CryptoList cryptos={cryptos} toggleBookmark={toggleBookmark} />
+      <main className={styles.main}>
+        <CryptoList cryptos={cryptos} />
       </main>
       <Navigation />
     </div>
